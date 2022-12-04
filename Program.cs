@@ -6,6 +6,8 @@
 [“Russia”, “Denmark”, “Kazan”] → []
 */
 
+
+/*
 // Очищаем консоль 
 Console.Clear();
 
@@ -37,7 +39,6 @@ if (sizeUserInputFiltered != 0)
 // Если массив пустой выводим сообщение на экран, что массив пуст.
 else { Console.Write(" Новый массив  пуcт []"); }
 
-
 // Функция заполняет новый массив элементами из принятого массива.
 // В новый массив войдут те элементы, у которых кол-во символов  меньше либо равна 3
 void FilteredArray(string[] arr)
@@ -54,4 +55,41 @@ void FilteredArray(string[] arr)
 }
 
 
+*/
 
+// РЕШЕНИЕ  2
+
+
+Console.Clear();
+// Просим пользователея ввести  текст
+Console.Write("Введите через пробел: ");
+// Ввод сохраняем в новый массив очистив от лишних пробелов 
+string[] userInput = Console.ReadLine().Split(new char[] { }, StringSplitOptions.RemoveEmptyEntries);
+
+// sizeUserInputFiltered хранит размер нового массива
+string elementLessThenThree = String.Empty;
+
+// присваиваем в переменную elementLessThenThree через пробел  элементами массива длина которых меньше или равна 3 символам
+foreach (string el in userInput)
+{
+    if (el.Length <= 3)
+    {
+        elementLessThenThree += el + " ";
+    }
+    else { continue; }
+}
+// Создаем новый массив из строки elementLessThenThree
+string[] newArr = elementLessThenThree.Split(new char[] { ' ' });
+// Выводим элементы нового массива newArr на экран 
+
+if (elementLessThenThree != String.Empty)
+{
+    foreach (string el in newArr)
+    {
+        Console.Write(el + " ");
+    }
+}
+else
+{
+    Console.Write("Новый массив пуст [ ]");
+}
